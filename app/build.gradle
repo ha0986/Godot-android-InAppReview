@@ -39,5 +39,5 @@ dependencies {
 
     implementation 'io.github.m4gr3d:godot:3.5.1.stable'
     implementation 'com.google.android.play:review:2.0.1'
-    implementation 'com.google.android.gms:play-services-ads:21.3.0'
+
 }
