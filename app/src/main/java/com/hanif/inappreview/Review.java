@@ -23,6 +23,7 @@ public class Review extends GodotPlugin {
 
     public Review(Godot godot) {
         super(godot);
+        activity = godot.getActivity();
     }
 
     @NonNull
@@ -47,9 +48,13 @@ public class Review extends GodotPlugin {
             if (task.isSuccessful()) {
 
                 ReviewInfo reviewInfo = task.getResult();
-                Task<Void> flow = manager.launchReviewFlow(activity, reviewInfo);
-                flow.addOnCompleteListener(okay -> {
-                });
+                if (reviewInfo != null){
+                    Task<Void> flow = manager.launchReviewFlow(activity, reviewInfo);
+                    flow.addOnCompleteListener(okay -> {
+                    });
+                }
+
+
             } else{
                 Log.d("error", "this app may be already rated or this app isn't in play store");
             }
